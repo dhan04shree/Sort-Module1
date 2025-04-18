@@ -59,15 +59,35 @@ export default function TaskDashboard() {
       </div>
 
       {error && <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-md text-white">{error}</div>}
-
       <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 md:p-6 shadow-lg border border-white/10">
-        <Tabs defaultValue="list" value={activeView} onValueChange={setActiveView} className="w-full">
-          <TabsList className="grid grid-cols-4 mb-6">
-            <TabsTrigger value="list">List View</TabsTrigger>
-            <TabsTrigger value="kanban">Kanban Board</TabsTrigger>
-            <TabsTrigger value="calendar">Calendar</TabsTrigger>
-            <TabsTrigger value="gantt">Gantt Chart</TabsTrigger>
-          </TabsList>
+
+      <Tabs defaultValue="list" value={activeView} onValueChange={setActiveView} className="w-full">
+          <TabsList className="grid grid-cols-4 gap-x-10 mb-6">
+      <TabsTrigger
+        value="list"
+        className="cursor-pointer text-slate-300 py-1 font-medium transition-all border-0 data-[state=active]:border-[#2A9D8F] data-[state=active]:border-b-2 rounded-none"
+      >
+        List View
+      </TabsTrigger>
+      <TabsTrigger
+        value="kanban"
+        className="cursor-pointer text-slate-300  py-1 font-medium transition-all border-0 data-[state=active]:border-[#2A9D8F] data-[state=active]:border-b-2 rounded-none"
+      >
+        Kanban Board
+      </TabsTrigger>
+      <TabsTrigger
+        value="calendar"
+        className="cursor-pointer text-slate-300 py-1 font-medium transition-all border-0 data-[state=active]:border-[#2A9D8F] data-[state=active]:border-b-2 rounded-none"
+      >
+        Calendar
+      </TabsTrigger>
+      <TabsTrigger
+        value="gantt"
+        className="cursor-pointer text-slate-300 py-1 font-medium transition-all border-0 data-[state=active]:border-[#2A9D8F] data-[state=active]:border-b-2 rounded-none"
+      >
+        Gantt Chart
+      </TabsTrigger>
+    </TabsList>
 
           {isLoading ? (
             <div className="flex justify-center items-center h-64">
