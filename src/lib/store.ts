@@ -94,78 +94,54 @@ export const useTaskStore = create<TaskState>((set) => ({
   error: null,
 
   fetchTasks: async () => {
-    set({ isLoading: true, error: null })
+    set({ isLoading: true, error: null });
     try {
-      // In a real app, this would be an API call
-      // const response = await axios.get(API_URL)
-      // set({ tasks: response.data, isLoading: false })
-
-      // Using mock data for now
       setTimeout(() => {
-        set({ tasks: mockTasks, isLoading: false })
-      }, 800)
+        set({ tasks: mockTasks, isLoading: false });
+      }, 800);
     } catch (error) {
-      set({ error: "Failed to fetch tasks", isLoading: false })
+      set({ error: "Failed to fetch tasks", isLoading: false });
     }
   },
 
   createTask: async (task: Task) => {
-    set({ isLoading: true, error: null })
+    set({ isLoading: true, error: null });
     try {
-      // In a real app, this would be an API call
-      // const response = await axios.post(API_URL, task)
-      // set(state => ({ tasks: [...state.tasks, response.data], isLoading: false }))
-
-      // Using mock data for now
       setTimeout(() => {
-        set((state) => ({ tasks: [...state.tasks, task], isLoading: false }))
-      }, 500)
+        set((state) => ({ tasks: [...state.tasks, task], isLoading: false }));
+      }, 500);
     } catch (error) {
-      set({ error: "Failed to create task", isLoading: false })
+      set({ error: "Failed to create task", isLoading: false });
     }
   },
 
-  updateTask: async (task: Task) => {
-    set({ isLoading: true, error: null })
+  updateTask: async (updatedTask: Task) => {
+    set({ isLoading: true, error: null });
     try {
-      // In a real app, this would be an API call
-      // const response = await axios.put(`${API_URL}/${task.id}`, task)
-      // set(state => ({
-      //   tasks: state.tasks.map(t => t.id === task.id ? response.data : t),
-      //   isLoading: false
-      // }))
-
-      // Using mock data for now
       setTimeout(() => {
         set((state) => ({
-          tasks: state.tasks.map((t) => (t.id === task.id ? task : t)),
+          tasks: state.tasks.map((task) =>
+            task.id === updatedTask.id ? { ...task, ...updatedTask } : task
+          ),
           isLoading: false,
-        }))
-      }, 500)
+        }));
+      }, 500);
     } catch (error) {
-      set({ error: "Failed to update task", isLoading: false })
+      set({ error: "Failed to update task", isLoading: false });
     }
   },
 
   deleteTask: async (id: string) => {
-    set({ isLoading: true, error: null })
+    set({ isLoading: true, error: null });
     try {
-      // In a real app, this would be an API call
-      // await axios.delete(`${API_URL}/${id}`)
-      // set(state => ({
-      //   tasks: state.tasks.filter(t => t.id !== id),
-      //   isLoading: false
-      // }))
-
-      // Using mock data for now
       setTimeout(() => {
         set((state) => ({
-          tasks: state.tasks.filter((t) => t.id !== id),
+          tasks: state.tasks.filter((task) => task.id !== id),
           isLoading: false,
-        }))
-      }, 500)
+        }));
+      }, 500);
     } catch (error) {
-      set({ error: "Failed to delete task", isLoading: false })
+      set({ error: "Failed to delete task", isLoading: false });
     }
   },
-}))
+}));
