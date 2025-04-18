@@ -12,11 +12,9 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { type Task, useTaskStore } from "@/lib/store"
 import TaskModal from "../../components/task-model"
 
-interface TaskListProps {
-  tasks: Task[]
-}
 
-export default function TaskList({ tasks }: TaskListProps) {
+export default function TaskList() {
+  const tasks = useTaskStore((state) => state.tasks)
   const { updateTask, deleteTask } = useTaskStore()
   const [editTask, setEditTask] = useState<Task | null>(null)
   const [expandedTasks, setExpandedTasks] = useState<Record<string, boolean>>({})
