@@ -71,12 +71,12 @@ export default function KanbanView() {
   return (
     <div>
       {/* Group By Dropdown */}
-      <div className="fixed top-3 left-250 z-50 p-2 shadow-md">
+      <div className="z-50 shadow-md">
         <Select value={groupBy} onValueChange={(value) => setGroupBy(value as any)}>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-[180px]" style={{background:"#283953"}}>
             <SelectValue placeholder="Group by" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent  style={{background:"#283953"}}>
             <SelectItem value="status">Group by Status</SelectItem>
             <SelectItem value="priority">Group by Priority</SelectItem>
           </SelectContent>
