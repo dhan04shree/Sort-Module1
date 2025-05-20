@@ -6,7 +6,7 @@ import {
   SlotInfo,
   Event as RBCEvent,
 } from "react-big-calendar"
-import { useTaskStore } from "@/lib/store"
+import { useTaskStore,Task } from "@/lib/store"
 import { format } from "date-fns/format"
 import { parse } from "date-fns/parse"
 import { startOfWeek } from "date-fns/startOfWeek"

@@ -58,8 +58,12 @@ const TaskGantt = () => {
       gantt.attachEvent("onAfterTaskUpdate", (id: string, task: any) => {
         console.log("Gantt updated task:", task);
 
+        // Find the original task to preserve required properties
+        const originalTask = tasks.find((t) => t.id === id);
+        if (!originalTask) return;
+
         const updatedTask = {
-          id,
+          ...originalTask,
           title: task.text,
           startDate: new Date(task.start_date).toISOString(),
           dueDate: new Date(
