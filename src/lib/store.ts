@@ -37,9 +37,6 @@ interface TaskState {
   deleteTask: (id: string) => Promise<void>
 }
 
-// Mock API endpoint
-const API_URL = "/api/tasks"
-
 // Mock data for initial development
 const mockTasks: Task[] = [
   {

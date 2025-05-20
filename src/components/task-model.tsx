@@ -227,7 +227,7 @@ export default function TaskModal({
 
           {/* Dates */}
 
-        {["startDate", "dueDate"].map((field) => (
+        {(["startDate", "dueDate"] as const).map((field) => (
        <div key={field} className="grid grid-cols-4 items-center gap-4">
           <label className="text-right text-slate-300">
           {field === "startDate" ? "Start Date" : "Due Date"}
@@ -250,7 +250,7 @@ export default function TaskModal({
           selected={formData[field] ? new Date(formData[field]!) : undefined}
           onSelect={(date) => {
             if (date) {
-              updateForm(field as "startDate" | "dueDate", date.toISOString())
+              updateForm(field, date.toISOString())
             }
           }}
         initialFocus
